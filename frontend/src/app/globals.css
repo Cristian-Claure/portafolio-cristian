@@ -1,26 +1,231 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #050a12;
+  --foreground: #f8fafc;
+  --muted: #94a3b8;
+  --panel: rgba(15, 23, 42, 0.72);
+  --panel-strong: rgba(15, 23, 42, 0.94);
+  --border: rgba(148, 163, 184, 0.16);
+  --accent: #38bdf8;
+  --accent-secondary: #818cf8;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+* {
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+  background: var(--background);
 }
 
 body {
-  background: var(--background);
+  min-height: 100vh;
+  margin: 0;
+  overflow-x: hidden;
+  background:
+    radial-gradient(
+      circle at 15% 15%,
+      rgba(56, 189, 248, 0.12),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 85% 30%,
+      rgba(129, 140, 248, 0.1),
+      transparent 28%
+    ),
+    #050a12;
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+  text-rendering: optimizeLegibility;
+}
+
+body::before {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-image:
+    linear-gradient(rgba(148, 163, 184, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148, 163, 184, 0.035) 1px, transparent 1px);
+  background-size: 48px 48px;
+  content: "";
+  mask-image: linear-gradient(to bottom, black, transparent 88%);
+  pointer-events: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+::selection {
+  background: rgba(56, 189, 248, 0.28);
+  color: #ffffff;
+}
+
+.glass-panel {
+  border: 1px solid var(--border);
+  background: var(--panel);
+  backdrop-filter: blur(18px);
+}
+
+.text-gradient {
+  background: linear-gradient(
+    110deg,
+    #f8fafc 10%,
+    #7dd3fc 48%,
+    #a5b4fc 88%
+  );
+  background-clip: text;
+  color: transparent;
+}
+
+.status-dot {
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 9999px;
+  display: inline-block;
+}
+
+.status-online {
+  background: #4ade80;
+  box-shadow: 0 0 0 5px rgba(74, 222, 128, 0.1);
+}
+
+.status-offline {
+  background: #fbbf24;
+  box-shadow: 0 0 0 5px rgba(251, 191, 36, 0.1);
+}
+
+@keyframes floating-pulse {
+  0%,
+  100% {
+    box-shadow:
+      0 16px 45px rgba(16, 185, 129, 0.22),
+      0 0 0 0 rgba(52, 211, 153, 0.15);
+  }
+
+  50% {
+    box-shadow:
+      0 18px 50px rgba(16, 185, 129, 0.3),
+      0 0 0 10px rgba(52, 211, 153, 0);
+  }
+}
+
+.social-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.035);
+  padding: 0.5rem 0.9rem;
+  color: #cbd5e1;
+  font-size: 0.875rem;
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    background 180ms ease;
+}
+
+.social-pill:hover {
+  transform: translateY(-2px);
+  border-color: rgba(56, 189, 248, 0.32);
+  background: rgba(56, 189, 248, 0.08);
+}
+
+.social-pill-whatsapp:hover {
+  border-color: rgba(52, 211, 153, 0.35);
+  background: rgba(52, 211, 153, 0.09);
+}
+
+.project-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.project-card::before {
+  position: absolute;
+  top: -8rem;
+  right: -8rem;
+  width: 16rem;
+  height: 16rem;
+  border-radius: 9999px;
+  background: rgba(56, 189, 248, 0.08);
+  filter: blur(44px);
+  content: "";
+  transition:
+    transform 400ms ease,
+    background 400ms ease;
+  pointer-events: none;
+}
+
+.project-card:hover::before {
+  transform: translate(-2rem, 2rem) scale(1.15);
+  background: rgba(129, 140, 248, 0.13);
+}
+
+.process-card {
+  transition:
+    transform 220ms ease,
+    border-color 220ms ease,
+    background 220ms ease;
+}
+
+.process-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(56, 189, 248, 0.26);
+  background: rgba(15, 23, 42, 0.88);
+}
+
+.whatsapp-floating {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  z-index: 60;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  border: 1px solid rgba(52, 211, 153, 0.34);
+  border-radius: 9999px;
+  background: rgba(6, 78, 59, 0.95);
+  padding: 0.85rem 1rem;
+  color: #d1fae5;
+  font-size: 0.875rem;
+  font-weight: 600;
+  backdrop-filter: blur(16px);
+  animation: floating-pulse 2.8s ease-in-out infinite;
+  transition:
+    transform 180ms ease,
+    background 180ms ease;
+}
+
+.whatsapp-floating:hover {
+  transform: translateY(-3px) scale(1.02);
+  background: rgba(5, 110, 79, 0.97);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .whatsapp-floating {
+    animation: none;
+  }
+
+  .social-pill,
+  .project-card,
+  .process-card {
+    transition: none;
+  }
 }
