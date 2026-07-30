@@ -229,3 +229,406 @@ a {
     transition: none;
   }
 }
+
+@keyframes skills-panel-enter {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.992);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes skills-orb-float {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate3d(20px, -18px, 0) scale(1.08);
+  }
+}
+
+.skills-panel-enter {
+  animation: skills-panel-enter 320ms ease-out both;
+}
+
+.skills-background-orb {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(80px);
+  opacity: 0.16;
+  pointer-events: none;
+  animation: skills-orb-float 9s ease-in-out infinite;
+}
+
+.skills-background-orb-one {
+  top: 8%;
+  left: -8rem;
+  width: 22rem;
+  height: 22rem;
+  background: #0ea5e9;
+}
+
+.skills-background-orb-two {
+  right: -7rem;
+  bottom: 4%;
+  width: 20rem;
+  height: 20rem;
+  background: #6366f1;
+  animation-delay: -4s;
+}
+
+.skill-category-button {
+  position: relative;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 0.85rem;
+  overflow: hidden;
+  border: 1px solid transparent;
+  border-radius: 1rem;
+  padding: 0.75rem;
+  color: #94a3b8;
+  cursor: pointer;
+  transition:
+    border-color 180ms ease,
+    background 180ms ease,
+    color 180ms ease,
+    transform 180ms ease;
+}
+
+.skill-category-button:hover {
+  border-color: rgba(148, 163, 184, 0.12);
+  background: rgba(255, 255, 255, 0.035);
+  color: #e2e8f0;
+  transform: translateX(2px);
+}
+
+.skill-category-button-active {
+  border-color: rgba(56, 189, 248, 0.2);
+  background:
+    linear-gradient(
+      100deg,
+      rgba(56, 189, 248, 0.12),
+      rgba(99, 102, 241, 0.05)
+    );
+  color: #f8fafc;
+}
+
+.skill-category-button-active::after {
+  position: absolute;
+  top: 20%;
+  right: 0;
+  width: 2px;
+  height: 60%;
+  border-radius: 9999px;
+  background: #7dd3fc;
+  box-shadow: 0 0 18px rgba(125, 211, 252, 0.65);
+  content: "";
+}
+
+.skill-detail-card {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(148, 163, 184, 0.11);
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.025);
+  padding: 1.15rem;
+  transition:
+    transform 200ms ease,
+    border-color 200ms ease,
+    background 200ms ease;
+}
+
+.skill-detail-card::before {
+  position: absolute;
+  top: -4rem;
+  right: -4rem;
+  width: 8rem;
+  height: 8rem;
+  border-radius: 9999px;
+  background: rgba(56, 189, 248, 0.06);
+  filter: blur(25px);
+  content: "";
+  pointer-events: none;
+  transition:
+    transform 300ms ease,
+    background 300ms ease;
+}
+
+.skill-detail-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(56, 189, 248, 0.23);
+  background: rgba(15, 23, 42, 0.7);
+}
+
+.skill-detail-card:hover::before {
+  transform: translate(-1rem, 1rem) scale(1.2);
+  background: rgba(99, 102, 241, 0.12);
+}
+
+@media (max-width: 1023px) {
+  .skill-category-button {
+    width: auto;
+  }
+
+  .skill-category-button:hover {
+    transform: translateY(-2px);
+  }
+
+  .skill-category-button-active::after {
+    top: auto;
+    right: 20%;
+    bottom: 0;
+    width: 60%;
+    height: 2px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skills-panel-enter,
+  .skills-background-orb {
+    animation: none;
+  }
+
+  .skill-category-button,
+  .skill-detail-card {
+    transition: none;
+  }
+}
+
+/* PREFERENCES_AND_LIGHT_THEME_V1 */
+
+.language-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.035);
+  padding: 0.2rem;
+}
+
+.language-switch-button {
+  border: 0;
+  border-radius: 9999px;
+  background: transparent;
+  padding: 0.42rem 0.58rem;
+  color: #64748b;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition:
+    background 180ms ease,
+    color 180ms ease,
+    transform 180ms ease;
+}
+
+.language-switch-button:hover {
+  color: #cbd5e1;
+}
+
+.language-switch-button-active {
+  background: rgba(56, 189, 248, 0.14);
+  color: #bae6fd;
+  box-shadow: inset 0 0 0 1px rgba(56, 189, 248, 0.18);
+}
+
+.theme-toggle {
+  display: inline-flex;
+  width: 2.55rem;
+  height: 2.55rem;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.035);
+  color: #cbd5e1;
+  cursor: pointer;
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    background 180ms ease,
+    color 180ms ease;
+}
+
+.theme-toggle:hover {
+  transform: translateY(-2px);
+  border-color: rgba(56, 189, 248, 0.3);
+  background: rgba(56, 189, 248, 0.08);
+  color: #e0f2fe;
+}
+
+html[data-theme="light"] {
+  --background: #f4f7fb;
+  --foreground: #0f172a;
+  --muted: #475569;
+  --panel: rgba(255, 255, 255, 0.8);
+  --panel-strong: rgba(255, 255, 255, 0.96);
+  --border: rgba(15, 23, 42, 0.11);
+  background: var(--background);
+}
+
+html[data-theme="light"] body {
+  background:
+    radial-gradient(
+      circle at 15% 15%,
+      rgba(14, 165, 233, 0.1),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 85% 30%,
+      rgba(99, 102, 241, 0.08),
+      transparent 28%
+    ),
+    #f4f7fb;
+  color: #0f172a;
+}
+
+html[data-theme="light"] body::before {
+  background-image:
+    linear-gradient(rgba(15, 23, 42, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15, 23, 42, 0.045) 1px, transparent 1px);
+}
+
+html[data-theme="light"] header {
+  border-color: rgba(15, 23, 42, 0.08) !important;
+  background: rgba(248, 250, 252, 0.84) !important;
+  box-shadow: 0 8px 30px rgba(15, 23, 42, 0.05);
+}
+
+html[data-theme="light"] .glass-panel {
+  border-color: rgba(15, 23, 42, 0.11);
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow:
+    0 22px 55px rgba(15, 23, 42, 0.07),
+    inset 0 1px 0 rgba(255, 255, 255, 0.85);
+}
+
+html[data-theme="light"] [class*="border-white/"] {
+  border-color: rgba(15, 23, 42, 0.1) !important;
+}
+
+html[data-theme="light"] [class*="bg-white/"] {
+  background-color: rgba(15, 23, 42, 0.035) !important;
+}
+
+html[data-theme="light"] [class~="text-slate-100"],
+html[data-theme="light"] [class~="text-slate-200"],
+html[data-theme="light"] [class~="text-slate-300"] {
+  color: #1e293b !important;
+}
+
+html[data-theme="light"] [class~="text-slate-400"] {
+  color: #475569 !important;
+}
+
+html[data-theme="light"] [class~="text-slate-500"] {
+  color: #64748b !important;
+}
+
+html[data-theme="light"] [class~="text-slate-600"] {
+  color: #64748b !important;
+}
+
+html[data-theme="light"] .text-gradient {
+  background: linear-gradient(
+    110deg,
+    #0f172a 8%,
+    #0284c7 50%,
+    #6366f1 90%
+  );
+  background-clip: text;
+  color: transparent;
+}
+
+html[data-theme="light"] .language-switch,
+html[data-theme="light"] .theme-toggle,
+html[data-theme="light"] .social-pill {
+  border-color: rgba(15, 23, 42, 0.11);
+  background: rgba(255, 255, 255, 0.72);
+  color: #334155;
+}
+
+html[data-theme="light"] .language-switch-button {
+  color: #64748b;
+}
+
+html[data-theme="light"] .language-switch-button-active {
+  background: rgba(14, 165, 233, 0.11);
+  color: #0369a1;
+}
+
+html[data-theme="light"] .skill-category-button {
+  color: #64748b;
+}
+
+html[data-theme="light"] .skill-category-button:hover {
+  border-color: rgba(15, 23, 42, 0.09);
+  background: rgba(15, 23, 42, 0.035);
+  color: #0f172a;
+}
+
+html[data-theme="light"] .skill-category-button-active {
+  border-color: rgba(14, 165, 233, 0.18);
+  background:
+    linear-gradient(
+      100deg,
+      rgba(14, 165, 233, 0.1),
+      rgba(99, 102, 241, 0.045)
+    );
+  color: #0f172a;
+}
+
+html[data-theme="light"] .skill-detail-card {
+  border-color: rgba(15, 23, 42, 0.09);
+  background: rgba(255, 255, 255, 0.65);
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.04);
+}
+
+html[data-theme="light"] .skill-detail-card:hover {
+  border-color: rgba(14, 165, 233, 0.22);
+  background: rgba(255, 255, 255, 0.94);
+}
+
+html[data-theme="light"] .process-card:hover {
+  border-color: rgba(14, 165, 233, 0.2);
+  background: rgba(255, 255, 255, 0.94);
+}
+
+html[data-theme="light"] .project-card::before {
+  background: rgba(14, 165, 233, 0.08);
+}
+
+html[data-theme="light"] .status-offline {
+  background: #f59e0b;
+}
+
+html[data-theme="light"] .whatsapp-floating {
+  color: #ecfdf5;
+}
+
+@media (max-width: 640px) {
+  .language-switch-button {
+    padding-inline: 0.48rem;
+    font-size: 0.64rem;
+  }
+
+  .theme-toggle {
+    width: 2.35rem;
+    height: 2.35rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .language-switch-button,
+  .theme-toggle {
+    transition: none;
+  }
+}

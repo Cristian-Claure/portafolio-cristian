@@ -32,3 +32,6 @@ backend/storage/logs/*.log
 *.tmp
 *.temp
 *.bak
+.project-backups/
+.project-backups/
+.project-backups/

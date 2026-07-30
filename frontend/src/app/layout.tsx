@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import type { ReactNode } from "react";
 import "./globals.css";
 
@@ -27,7 +28,19 @@ export default function RootLayout({
   children: ReactNode;
 }>) {
   return (
-    <html lang="es">
+    <html lang="es" suppressHydrationWarning>
+      <head>
+        <Script id="portfolio-preferences" strategy="beforeInteractive">
+          {`
+            try {
+              const theme =
+                localStorage.getItem("portfolio-theme") || "dark";
+              document.documentElement.dataset.theme = theme;
+            } catch {}
+          `}
+        </Script>
+      </head>
+
       <body>{children}</body>
     </html>
   );
