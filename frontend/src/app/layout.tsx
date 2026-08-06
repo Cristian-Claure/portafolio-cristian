@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import type { ReactNode } from "react";
 import "./globals.css";
+import "./portfolio-enhancements.css";
 
 export const metadata: Metadata = {
   title: {

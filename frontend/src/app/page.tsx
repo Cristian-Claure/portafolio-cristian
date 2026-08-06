@@ -3,7 +3,6 @@
 import { useEffect, useMemo, useState } from "react";
 import {
   ArrowDown,
-  ArrowUpRight,
   BriefcaseBusiness,
   CheckCircle2,
   Code2,
@@ -18,6 +17,10 @@ import {
   UserRound,
 } from "lucide-react";
 import SkillsExplorer from "@/components/SkillsExplorer";
+import CvActions from "@/components/CvActions";
+import MobileNavigation from "@/components/MobileNavigation";
+import PortfolioProjects from "@/components/PortfolioProjects";
+import ProfessionalExperience from "@/components/ProfessionalExperience";
 
 type Locale = "es" | "en";
 type Theme = "dark" | "light";
@@ -198,93 +201,6 @@ const translations = {
   },
 } as const;
 
-const projects = {
-  es: [
-    {
-      year: "2026",
-      focus: "Plataforma full stack",
-      title: "AgroEnlace",
-      description:
-        "Plataforma web para gestionar procesos agrícolas e incidencias operativas, preparada para funcionar completamente en un entorno local.",
-      stack: ["React", "Flask", "PostgreSQL"],
-    },
-    {
-      year: "2026",
-      focus: "Inteligencia artificial",
-      title: "Auxilio.AI",
-      description:
-        "Plataforma inteligente de emergencias vehiculares para registrar, atender y realizar seguimiento de solicitudes de auxilio.",
-      stack: ["Next.js", "FastAPI", "SQLite"],
-    },
-    {
-      year: "2025",
-      focus: "Gestión médica",
-      title: "Clínica Oftalmológica Horus",
-      description:
-        "Sistema web y móvil para administrar pacientes, especialistas, historiales clínicos y programación de citas.",
-      stack: ["React", "Spring Boot", "PostgreSQL"],
-    },
-    {
-      year: "2025",
-      focus: "Análisis predictivo",
-      title: "Aula Inteligente",
-      description:
-        "Plataforma académica con modelos predictivos para analizar y anticipar el rendimiento estudiantil.",
-      stack: ["Python", "Flask", "Machine Learning"],
-    },
-    {
-      year: "2024",
-      focus: "Sistema de información",
-      title: "Biblioteca Alejandría",
-      description:
-        "Sistema para administrar miembros, personal, catálogo bibliográfico y préstamos digitales.",
-      stack: ["Angular", "Node.js", "PostgreSQL"],
-    },
-  ],
-  en: [
-    {
-      year: "2026",
-      focus: "Full-stack platform",
-      title: "AgroEnlace",
-      description:
-        "A web platform for managing agricultural processes and operational incidents, designed to run entirely in a local environment.",
-      stack: ["React", "Flask", "PostgreSQL"],
-    },
-    {
-      year: "2026",
-      focus: "Artificial intelligence",
-      title: "Auxilio.AI",
-      description:
-        "An intelligent vehicle-emergency platform for registering, handling and tracking roadside assistance requests.",
-      stack: ["Next.js", "FastAPI", "SQLite"],
-    },
-    {
-      year: "2025",
-      focus: "Healthcare management",
-      title: "Horus Ophthalmology Clinic",
-      description:
-        "A web and mobile system for managing patients, specialists, medical records and appointment scheduling.",
-      stack: ["React", "Spring Boot", "PostgreSQL"],
-    },
-    {
-      year: "2025",
-      focus: "Predictive analytics",
-      title: "Smart Classroom",
-      description:
-        "An academic platform with predictive models for analyzing and anticipating student performance.",
-      stack: ["Python", "Flask", "Machine Learning"],
-    },
-    {
-      year: "2024",
-      focus: "Information system",
-      title: "Alexandria Library",
-      description:
-        "A system for managing members, staff, the bibliographic catalog and digital loans.",
-      stack: ["Angular", "Node.js", "PostgreSQL"],
-    },
-  ],
-} as const;
-
 const processSteps = {
   es: [
     {
@@ -344,7 +260,6 @@ export default function Home() {
   });
 
   const copy = translations[locale];
-  const visibleProjects = projects[locale];
   const visibleProcess = processSteps[locale];
 
   const apiUrl =
@@ -461,8 +376,11 @@ export default function Home() {
           </a>
 
           <div className="hidden items-center gap-7 text-sm text-slate-300 lg:flex">
-            <a className="transition hover:text-white" href="#sobre-mi">
+                        <a className="transition hover:text-white" href="#sobre-mi">
               {copy.nav.about}
+            </a>
+            <a className="transition hover:text-white" href="#experiencia">
+              {locale === "es" ? "Experiencia" : "Experience"}
             </a>
             <a className="transition hover:text-white" href="#habilidades">
               {copy.nav.skills}
@@ -536,6 +454,7 @@ export default function Home() {
               )}
             </button>
 
+            <MobileNavigation locale={locale} />
             <a
               href="#contacto"
               className="hidden rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-medium transition hover:border-sky-400/30 hover:bg-sky-400/10 sm:inline-flex"
@@ -587,7 +506,7 @@ export default function Home() {
             {copy.hero.description}
           </p>
 
-          <div className="mt-9 flex flex-col gap-4 sm:flex-row">
+          <div className="mt-9 flex flex-col flex-wrap gap-4 sm:flex-row">
             <a
               href="#proyectos"
               className="inline-flex items-center justify-center gap-2 rounded-xl bg-sky-400 px-6 py-3 font-medium text-slate-950 transition hover:bg-sky-300"
@@ -603,6 +522,7 @@ export default function Home() {
               {copy.hero.contact}
               <Mail className="h-4 w-4" />
             </a>
+            <CvActions locale={locale} />
           </div>
 
           <div className="mt-5 flex flex-wrap gap-3">
@@ -747,75 +667,10 @@ export default function Home() {
         </div>
       </section>
 
+      <ProfessionalExperience locale={locale} />
+
       <SkillsExplorer locale={locale} />
-
-      <section
-        id="proyectos"
-        className="mx-auto max-w-7xl px-6 py-24 lg:px-8"
-      >
-        <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
-          <div className="max-w-2xl">
-            <p className="text-sm font-medium uppercase tracking-[0.28em] text-sky-300">
-              {copy.projects.eyebrow}
-            </p>
-
-            <h2 className="mt-4 text-4xl font-semibold tracking-tight">
-              {copy.projects.title}
-            </h2>
-          </div>
-
-          <p className="max-w-md text-sm leading-6 text-slate-500">
-            {copy.projects.description}
-          </p>
-        </div>
-
-        <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-12">
-          {visibleProjects.map((project, index) => (
-            <article
-              key={project.title}
-              className={`glass-panel project-card group flex min-h-80 flex-col rounded-2xl p-7 transition duration-300 hover:-translate-y-1 hover:border-sky-400/30 ${
-                index < 2
-                  ? "lg:col-span-6"
-                  : "lg:col-span-4"
-              }`}
-            >
-              <div className="flex items-center justify-between gap-4">
-                <div className="flex flex-wrap items-center gap-2">
-                  <span className="rounded-full border border-white/10 px-3 py-1 text-xs text-slate-400">
-                    {project.year}
-                  </span>
-
-                  <span className="rounded-full border border-sky-400/20 bg-sky-400/[0.07] px-3 py-1 text-xs text-sky-200">
-                    {project.focus}
-                  </span>
-                </div>
-
-                <ArrowUpRight className="h-5 w-5 shrink-0 text-slate-600 transition group-hover:text-sky-300" />
-              </div>
-
-              <h3 className="mt-8 text-2xl font-medium">
-                {project.title}
-              </h3>
-
-              <p className="mt-4 flex-1 leading-7 text-slate-400">
-                {project.description}
-              </p>
-
-              <div className="mt-7 flex flex-wrap gap-2">
-                {project.stack.map((technology) => (
-                  <span
-                    key={technology}
-                    className="rounded-lg bg-white/[0.05] px-3 py-1.5 text-xs text-slate-300"
-                  >
-                    {technology}
-                  </span>
-                ))}
-              </div>
-            </article>
-          ))}
-        </div>
-      </section>
-
+      <PortfolioProjects locale={locale} />
       <section
         id="proceso"
         className="border-y border-white/5 bg-white/[0.015]"
