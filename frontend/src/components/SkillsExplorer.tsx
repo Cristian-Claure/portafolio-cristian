@@ -83,6 +83,7 @@ const projectTranslations: Record<string, string> = {
   "Proyecciones": "Forecasting",
   "Integración de datos": "Data integration",
   "Proyectos académicos": "Academic projects",
+  "Proyectos universitarios": "University projects",
   "Repositorios y colaboración": "Repositories and collaboration",
   "Pruebas de APIs": "API testing",
   "Desarrollo diario": "Daily development",
@@ -193,6 +194,11 @@ const categories: SkillCategory[] = [
         name: "FastAPI",
         level: "Aplicado en proyectos",
         projects: ["Auxilio.AI"],
+      },
+      {
+        name: "Django",
+        level: "Uso frecuente",
+        projects: ["Aula Inteligente", "Proyectos universitarios"],
       },
       {
         name: "Node.js",

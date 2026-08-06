@@ -25,7 +25,9 @@ const labels = {
   ],
 } as const;
 
-export default function MobileNavigation({ locale }: MobileNavigationProps) {
+export default function MobileNavigation({
+  locale,
+}: MobileNavigationProps) {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
@@ -35,26 +37,52 @@ export default function MobileNavigation({ locale }: MobileNavigationProps) {
       }
     }
 
+    const desktopQuery = window.matchMedia("(min-width: 1024px)");
+
+    function handleDesktopChange(event: MediaQueryListEvent) {
+      if (event.matches) {
+        setOpen(false);
+      }
+    }
+
     window.addEventListener("keydown", handleEscape);
-    return () => window.removeEventListener("keydown", handleEscape);
+    desktopQuery.addEventListener("change", handleDesktopChange);
+
+    return () => {
+      window.removeEventListener("keydown", handleEscape);
+      desktopQuery.removeEventListener("change", handleDesktopChange);
+    };
   }, []);
+
+  const toggleLabel =
+    locale === "es"
+      ? open
+        ? "Cerrar navegación"
+        : "Abrir navegación"
+      : open
+        ? "Close navigation"
+        : "Open navigation";
 
   return (
     <>
       <button
         type="button"
-        className="mobile-menu-toggle lg:hidden"
+        className="mobile-menu-toggle"
         onClick={() => setOpen((current) => !current)}
         aria-expanded={open}
         aria-controls="mobile-navigation"
-        aria-label={locale === "es" ? "Abrir navegación" : "Open navigation"}
+        aria-label={toggleLabel}
       >
         {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
       </button>
 
       {open && (
-        <div id="mobile-navigation" className="mobile-nav-panel lg:hidden">
-          <nav aria-label={locale === "es" ? "Navegación móvil" : "Mobile navigation"}>
+        <div id="mobile-navigation" className="mobile-nav-panel">
+          <nav
+            aria-label={
+              locale === "es" ? "Navegación móvil" : "Mobile navigation"
+            }
+          >
             {labels[locale].map(([label, href], index) => (
               <a href={href} onClick={() => setOpen(false)} key={href}>
                 <span>{String(index + 1).padStart(2, "0")}</span>
