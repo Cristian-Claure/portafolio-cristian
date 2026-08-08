@@ -45,6 +45,7 @@ const labels = {
 export default function ProjectDetailClient({ project }: ProjectDetailClientProps) {
   const [locale, setLocale] = useState<Locale>("es");
   const [theme, setTheme] = useState<Theme>("dark");
+  const [preferencesReady, setPreferencesReady] = useState(false);
 
   useEffect(() => {
     const restore = window.setTimeout(() => {
@@ -58,17 +59,22 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
       if (storedTheme === "dark" || storedTheme === "light") {
         setTheme(storedTheme);
       }
+      setPreferencesReady(true);
     }, 0);
 
     return () => window.clearTimeout(restore);
   }, []);
 
   useEffect(() => {
+    if (!preferencesReady) {
+      return;
+    }
+
     document.documentElement.lang = locale;
     document.documentElement.dataset.theme = theme;
     localStorage.setItem("portfolio-locale", locale);
     localStorage.setItem("portfolio-theme", theme);
-  }, [locale, theme]);
+  }, [locale, theme, preferencesReady]);
 
   const copy = project[locale];
   const ui = labels[locale];

@@ -231,7 +231,7 @@ export const projectCatalog: readonly Project[] = [
     year: "2025",
     featured: false,
     variant: "analytics",
-    stack: ["Python", "Flask", "Machine Learning", "PostgreSQL"],
+    stack: ["Python", "Django", "Flask", "Machine Learning", "PostgreSQL"],
     es: {
       title: "Aula Inteligente",
       category: "Análisis predictivo",

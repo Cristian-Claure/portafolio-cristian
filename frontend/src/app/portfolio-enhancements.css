@@ -1079,3 +1079,184 @@ html[data-theme="light"] .project-return-button:hover {
   border-color: rgba(2, 132, 199, 0.42);
   background: rgba(2, 132, 199, 0.15);
 }
+
+/* PORTFOLIO_POLISH_V9 */
+.project-mock-v9 {
+  --v9-accent: #38bdf8;
+  --v9-accent-soft: rgba(56, 189, 248, 0.13);
+  padding: 1.1rem;
+}
+.project-mockup-emergency.project-mock-v9 { --v9-accent: #fb7185; --v9-accent-soft: rgba(251,113,133,.14); }
+.project-mockup-agriculture.project-mock-v9 { --v9-accent: #34d399; --v9-accent-soft: rgba(52,211,153,.14); }
+.project-mockup-healthcare.project-mock-v9 { --v9-accent: #a78bfa; --v9-accent-soft: rgba(167,139,250,.14); }
+.project-mockup-analytics.project-mock-v9 { --v9-accent: #f59e0b; --v9-accent-soft: rgba(245,158,11,.15); }
+.project-mockup-library.project-mock-v9 { --v9-accent: #60a5fa; --v9-accent-soft: rgba(96,165,250,.14); }
+
+.project-mock-v9-browser {
+  overflow: hidden;
+  border: 1px solid rgba(148,163,184,.13);
+  border-radius: 1rem;
+  background: rgba(8,15,28,.93);
+  box-shadow: 0 22px 60px rgba(2,6,23,.28);
+}
+.project-mock-v9-toolbar {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: .7rem;
+  min-height: 2.15rem;
+  border-bottom: 1px solid rgba(148,163,184,.09);
+  padding: .45rem .65rem;
+  color: #94a3b8;
+  font-size: .58rem;
+}
+.project-mock-v9-toolbar strong { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 600; }
+.project-mock-v9-toolbar em {
+  border: 1px solid color-mix(in srgb, var(--v9-accent) 35%, transparent);
+  border-radius: 999px;
+  background: var(--v9-accent-soft);
+  padding: .2rem .42rem;
+  color: var(--v9-accent);
+  font-style: normal;
+  white-space: nowrap;
+}
+.project-mock-v9-dots { display: flex; gap: .22rem; }
+.project-mock-v9-dots span { width: .36rem; height: .36rem; border-radius: 50%; background: rgba(148,163,184,.4); }
+.project-mock-v9-dots span:first-child { background: var(--v9-accent); }
+
+.project-mock-v9-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: .75rem;
+  padding: .8rem .85rem .45rem;
+}
+.project-mock-v9-header div { min-width: 0; }
+.project-mock-v9-header small { display: block; color: var(--v9-accent); font-size: .5rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+.project-mock-v9-header strong { display: block; margin-top: .18rem; overflow: hidden; color: #f8fafc; font-size: .78rem; text-overflow: ellipsis; white-space: nowrap; }
+.project-mock-v9-header > span { color: #64748b; font-size: .48rem; white-space: nowrap; }
+
+.project-mock-v9-scene { position: relative; min-height: 8.9rem; margin: .35rem .7rem .65rem; border: 1px solid rgba(148,163,184,.08); border-radius: .8rem; background: rgba(255,255,255,.025); padding: .75rem; }
+.project-mockup-compact .project-mock-v9-scene { min-height: 6.8rem; }
+.project-mock-v9-scene small { color: #64748b; font-size: .45rem; }
+.project-mock-v9-scene strong { color: #e2e8f0; }
+
+.project-mock-v9-architecture {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .35rem;
+  border-top: 1px solid rgba(148,163,184,.08);
+  padding: .58rem .7rem .7rem;
+}
+.project-mock-v9-architecture-item { display: flex; align-items: center; gap: .35rem; }
+.project-mock-v9-architecture-item span { border: 1px solid rgba(148,163,184,.11); border-radius: .42rem; background: rgba(255,255,255,.025); padding: .28rem .42rem; color: #cbd5e1; font-size: .47rem; font-weight: 600; white-space: nowrap; }
+.project-mock-v9-architecture-item i { color: var(--v9-accent); font-size: .55rem; font-style: normal; }
+
+/* Logistics */
+.logistics-route { position: relative; height: 3.4rem; margin: .25rem .4rem .7rem; }
+.route-line { position: absolute; top: 50%; left: 8%; right: 8%; height: 2px; background: linear-gradient(90deg,var(--v9-accent),rgba(129,140,248,.75)); transform: translateY(-50%); }
+.route-node { position: absolute; top: 50%; display: grid; width: 1.15rem; height: 1.15rem; place-items: center; border: 2px solid #0f172a; border-radius: 50%; background: var(--v9-accent); color: #082f49; font-size: .42rem; transform: translate(-50%,-50%); box-shadow: 0 0 0 4px var(--v9-accent-soft); }
+.route-node-a { left: 10%; } .route-node-b { left: 53%; } .route-node-c { left: 90%; }
+.logistics-summary,.clinic-summary,.library-summary,.emergency-cards,.agriculture-panel { display: grid; grid-template-columns: repeat(3,1fr); gap: .42rem; }
+.logistics-summary > div,.clinic-summary > div,.library-summary > div,.emergency-cards > div,.agriculture-panel > div { border: 1px solid rgba(148,163,184,.08); border-radius: .55rem; padding: .45rem; background: rgba(255,255,255,.025); }
+.logistics-summary strong,.clinic-summary strong,.library-summary strong,.emergency-cards strong,.agriculture-panel strong { display: block; margin-top: .12rem; font-size: .7rem; }
+.logistics-table { display: grid; gap: .24rem; margin-top: .45rem; }
+.logistics-table span { display: grid; grid-template-columns: .35rem 1fr auto; align-items: center; gap: .35rem; border-radius: .35rem; background: rgba(255,255,255,.018); padding: .28rem .4rem; color: #94a3b8; font-size: .43rem; }
+.logistics-table i { width: .3rem; height: .3rem; border-radius: 50%; background: #34d399; }
+.logistics-table b { color: #cbd5e1; font-weight: 500; }
+
+/* Emergency */
+.emergency-scene { display: grid; grid-template-columns: 1.05fr .95fr; gap: .55rem; }
+.emergency-map { position: relative; min-height: 6.5rem; overflow: hidden; border-radius: .55rem; background: linear-gradient(135deg,rgba(30,41,59,.8),rgba(15,23,42,.5)); }
+.map-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(148,163,184,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(148,163,184,.06) 1px,transparent 1px); background-size: 18px 18px; }
+.map-pin { position: absolute; width: .55rem; height: .55rem; border: 2px solid #111827; border-radius: 50% 50% 50% 0; background: var(--v9-accent); transform: rotate(-45deg); box-shadow: 0 0 0 4px var(--v9-accent-soft); }
+.pin-one { left: 25%; top: 32%; } .pin-two { left: 65%; top: 50%; } .pin-three { left: 46%; top: 73%; }
+.emergency-cards { grid-template-columns: 1fr; align-content: start; }
+.priority-card strong { color: #fda4af; }
+.emergency-flow { grid-column: 1 / -1; display: flex; align-items: center; justify-content: center; gap: .3rem; color: #94a3b8; font-size: .42rem; }
+.emergency-flow i { width: 1.2rem; height: 1px; background: var(--v9-accent); }
+
+/* Agriculture */
+.agriculture-scene { display: grid; grid-template-columns: 1.1fr .9fr; gap: .55rem; }
+.field-grid { display: grid; grid-template-columns: repeat(3,1fr); grid-template-rows: repeat(2,1fr); gap: .22rem; min-height: 5.8rem; }
+.field { border-radius: .35rem; background: linear-gradient(135deg,rgba(16,185,129,.22),rgba(34,197,94,.08)); border: 1px solid rgba(52,211,153,.14); }
+.field-2,.field-5 { background: linear-gradient(135deg,rgba(132,204,22,.18),rgba(52,211,153,.06)); }
+.agriculture-panel { grid-template-columns: 1fr; }
+.realtime-feed { grid-column: 1/-1; display: flex; gap: .4rem; }
+.realtime-feed span { flex: 1; display: flex; align-items: center; gap: .3rem; border-radius: .35rem; background: rgba(255,255,255,.02); padding: .3rem .4rem; color: #94a3b8; font-size: .4rem; }
+.realtime-feed i { width: .3rem; height: .3rem; border-radius: 50%; background: #34d399; box-shadow: 0 0 0 3px rgba(52,211,153,.12); }
+
+/* Healthcare */
+.clinic-calendar { border: 1px solid rgba(148,163,184,.08); border-radius: .55rem; overflow: hidden; }
+.calendar-head { display: grid; grid-template-columns: repeat(3,1fr); border-bottom: 1px solid rgba(148,163,184,.07); color: #64748b; font-size: .42rem; }
+.calendar-head span { padding: .3rem; text-align: center; }
+.calendar-grid { display: grid; grid-template-columns: repeat(3,1fr); grid-template-rows: repeat(2,1.4rem); gap: 1px; background: rgba(148,163,184,.05); }
+.calendar-grid i { background: rgba(255,255,255,.02); }
+.calendar-grid i:nth-child(2),.calendar-grid i:nth-child(5) { background: var(--v9-accent-soft); box-shadow: inset 2px 0 0 var(--v9-accent); }
+.clinic-summary { margin-top: .45rem; }
+.patient-row { display: grid; grid-template-columns: 1.2rem 1fr auto; align-items: center; gap: .4rem; margin-top: .45rem; border-radius: .4rem; background: rgba(255,255,255,.02); padding: .35rem .4rem; }
+.patient-row > span { display: grid; width: 1.15rem; height: 1.15rem; place-items: center; border-radius: 50%; background: var(--v9-accent-soft); color: var(--v9-accent); font-size: .38rem; font-weight: 700; }
+.patient-row b,.patient-row i { color: #94a3b8; font-size: .42rem; font-style: normal; font-weight: 500; }
+
+/* Analytics */
+.analytics-top { display: grid; grid-template-columns: .8fr 1.2fr; gap: .55rem; }
+.prediction-ring { display: grid; min-height: 4.4rem; place-content: center; place-items: center; border: 7px solid rgba(245,158,11,.13); border-top-color: var(--v9-accent); border-radius: 50%; aspect-ratio: 1; margin: auto; }
+.prediction-ring strong { font-size: .72rem; } .prediction-ring span { color: #64748b; font-size: .38rem; }
+.model-card { display: flex; flex-direction: column; justify-content: center; border: 1px solid rgba(148,163,184,.08); border-radius: .55rem; padding: .55rem; background: rgba(255,255,255,.02); }
+.model-card strong { margin: .12rem 0; font-size: .65rem; }.model-card span { color: var(--v9-accent); font-size: .42rem; }
+.analytics-chart { display: flex; height: 2.5rem; align-items: end; gap: .22rem; margin-top: .45rem; border-bottom: 1px solid rgba(148,163,184,.08); }
+.analytics-chart span { flex: 1; min-height: .25rem; border-radius: .18rem .18rem 0 0; background: linear-gradient(to top,var(--v9-accent),rgba(245,158,11,.18)); }
+.analytics-footer { display: flex; align-items: center; gap: .35rem; margin-top: .35rem; overflow: hidden; }.analytics-footer b { border-radius: 999px; background: rgba(255,255,255,.025); padding: .18rem .35rem; color: #94a3b8; font-size: .38rem; font-weight: 500; white-space: nowrap; }
+
+/* Library */
+.bookshelf { display: flex; height: 3.6rem; align-items: end; gap: .2rem; border-bottom: .45rem solid rgba(148,163,184,.15); padding: 0 .45rem; }
+.bookshelf span { width: .45rem; border-radius: .1rem .1rem 0 0; background: linear-gradient(180deg,var(--v9-accent),rgba(96,165,250,.32)); }
+.bookshelf span:nth-child(3n) { background: linear-gradient(180deg,#a78bfa,rgba(167,139,250,.28)); }
+.library-summary { margin-top: .5rem; }
+.loan-list { display: grid; gap: .22rem; margin-top: .45rem; }.loan-list span { display: flex; justify-content: space-between; border-radius: .35rem; background: rgba(255,255,255,.02); padding: .28rem .4rem; color: #94a3b8; font-size: .4rem; }.loan-list b { color: #60a5fa; font-weight: 600; }
+
+/* Stronger light-mode readability on project pages and mocks. */
+html[data-theme="light"] .project-detail-hero {
+  background: linear-gradient(135deg, rgba(210,225,239,.82), rgba(228,232,245,.9));
+}
+html[data-theme="light"] .project-detail-hero p {
+  color: #334155 !important;
+  font-weight: 500;
+}
+html[data-theme="light"] .project-detail-badges span {
+  border-color: rgba(3,105,161,.26);
+  background: rgba(14,165,233,.10);
+  color: #075985;
+  font-weight: 700;
+}
+html[data-theme="light"] .project-mock-v9-browser {
+  border-color: rgba(15,23,42,.12);
+  background: rgba(241,245,249,.95);
+  box-shadow: 0 20px 55px rgba(15,23,42,.11);
+}
+html[data-theme="light"] .project-mock-v9-toolbar { border-color: rgba(15,23,42,.09); color: #64748b; }
+html[data-theme="light"] .project-mock-v9-header strong,
+html[data-theme="light"] .project-mock-v9-scene strong { color: #0f172a; }
+html[data-theme="light"] .project-mock-v9-scene { border-color: rgba(15,23,42,.09); background: rgba(255,255,255,.62); }
+html[data-theme="light"] .project-mock-v9-architecture { border-color: rgba(15,23,42,.09); }
+html[data-theme="light"] .project-mock-v9-architecture-item span { border-color: rgba(15,23,42,.11); background: rgba(255,255,255,.65); color: #334155; }
+html[data-theme="light"] .logistics-table span,
+html[data-theme="light"] .realtime-feed span,
+html[data-theme="light"] .patient-row,
+html[data-theme="light"] .loan-list span,
+html[data-theme="light"] .model-card,
+html[data-theme="light"] .logistics-summary > div,
+html[data-theme="light"] .clinic-summary > div,
+html[data-theme="light"] .library-summary > div,
+html[data-theme="light"] .emergency-cards > div,
+html[data-theme="light"] .agriculture-panel > div { background: rgba(255,255,255,.66); border-color: rgba(15,23,42,.08); }
+html[data-theme="light"] .emergency-map { background: linear-gradient(135deg,#dbe7f3,#edf2f7); }
+
+@media (max-width: 620px) {
+  .project-mock-v9 { padding: .7rem; }
+  .project-mock-v9-toolbar em { display: none; }
+  .project-mock-v9-architecture { flex-wrap: wrap; }
+  .emergency-scene,.agriculture-scene { grid-template-columns: 1fr; }
+  .emergency-flow,.realtime-feed { grid-column: auto; }
+}

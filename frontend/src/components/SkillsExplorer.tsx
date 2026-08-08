@@ -64,6 +64,9 @@ const skillTranslations: Record<string, string> = {
 };
 
 const projectTranslations: Record<string, string> = {
+  "Aula Inteligente": "Smart Classroom",
+  "Biblioteca Alejandría": "Alexandria Library",
+  "ITALSA S.A.": "ITALSA S.A.",
   "Aplicaciones web": "Web applications",
   "Dashboards": "Dashboards",
   "Sistemas web": "Web systems",
@@ -116,7 +119,7 @@ const categories: SkillCategory[] = [
       {
         name: "React",
         level: "Uso frecuente",
-        projects: ["AgroEnlace", "Horus", "Fletes Italsa"],
+        projects: ["Portafolio","Fletes Italsa","AgroEnlace","Horus"],
       },
       {
         name: "Next.js",
@@ -126,7 +129,7 @@ const categories: SkillCategory[] = [
       {
         name: "TypeScript",
         level: "Uso frecuente",
-        projects: ["Portafolio", "Auxilio.AI", "Fletes Italsa"],
+        projects: ["Portafolio","Auxilio.AI","Fletes Italsa","Horus"],
       },
       {
         name: "JavaScript",
@@ -173,22 +176,22 @@ const categories: SkillCategory[] = [
       {
         name: "Laravel",
         level: "Aplicado en proyectos",
-        projects: ["Portafolio"],
+        projects: ["Portafolio","Fletes Italsa"],
       },
       {
         name: "PHP",
         level: "En consolidación",
-        projects: ["Portafolio", "Proyectos web"],
+        projects: ["Portafolio","Fletes Italsa"],
       },
       {
         name: "Python",
         level: "Uso frecuente",
-        projects: ["AgroEnlace", "Aula Inteligente"],
+        projects: ["Auxilio.AI","AgroEnlace","Aula Inteligente"],
       },
       {
         name: "Flask",
         level: "Aplicado en proyectos",
-        projects: ["AgroEnlace", "Aula Inteligente"],
+        projects: ["AgroEnlace","Aula Inteligente"],
       },
       {
         name: "FastAPI",
@@ -196,9 +199,14 @@ const categories: SkillCategory[] = [
         projects: ["Auxilio.AI"],
       },
       {
+        name: "Socket.IO",
+        level: "Aplicado en proyectos",
+        projects: ["AgroEnlace"],
+      },
+      {
         name: "Django",
         level: "Uso frecuente",
-        projects: ["Aula Inteligente", "Proyectos universitarios"],
+        projects: ["Aula Inteligente","Proyectos universitarios"],
       },
       {
         name: "Node.js",
@@ -213,7 +221,7 @@ const categories: SkillCategory[] = [
       {
         name: "API REST",
         level: "Uso frecuente",
-        projects: ["Portafolio", "AgroEnlace", "Auxilio.AI"],
+        projects: ["Portafolio","Fletes Italsa","Auxilio.AI","AgroEnlace"],
       },
     ],
   },
@@ -235,7 +243,7 @@ const categories: SkillCategory[] = [
       {
         name: "TypeScript",
         level: "Uso frecuente",
-        projects: ["Portafolio", "Fletes Italsa"],
+        projects: ["Portafolio","Auxilio.AI","Fletes Italsa","Horus"],
       },
       {
         name: "JavaScript",
@@ -245,12 +253,12 @@ const categories: SkillCategory[] = [
       {
         name: "Python",
         level: "Uso frecuente",
-        projects: ["AgroEnlace", "Análisis de datos"],
+        projects: ["Auxilio.AI","AgroEnlace","Aula Inteligente"],
       },
       {
         name: "PHP",
         level: "En consolidación",
-        projects: ["Portafolio"],
+        projects: ["Portafolio","Fletes Italsa"],
       },
       {
         name: "Java",
@@ -282,7 +290,7 @@ const categories: SkillCategory[] = [
       {
         name: "PostgreSQL",
         level: "Uso frecuente",
-        projects: ["Portafolio", "AgroEnlace", "Horus"],
+        projects: ["Portafolio","AgroEnlace","Horus","Aula Inteligente","Biblioteca Alejandría"],
       },
       {
         name: "SQL Server",
@@ -292,7 +300,7 @@ const categories: SkillCategory[] = [
       {
         name: "MySQL",
         level: "Aplicado en proyectos",
-        projects: ["Sistemas académicos"],
+        projects: ["Fletes Italsa"],
       },
       {
         name: "SQLite",
@@ -334,17 +342,17 @@ const categories: SkillCategory[] = [
       {
         name: "Qlik Sense",
         level: "Uso frecuente",
-        projects: ["Dashboards empresariales"],
+        projects: ["ITALSA S.A.","Dashboards empresariales"],
       },
       {
         name: "Qlik Script",
         level: "Aplicado en proyectos",
-        projects: ["Carga y transformación de datos"],
+        projects: ["ITALSA S.A.","Carga y transformación de datos"],
       },
       {
         name: "Power BI",
         level: "Aplicado en proyectos",
-        projects: ["Análisis y visualización"],
+        projects: ["ITALSA S.A.","Análisis y visualización"],
       },
       {
         name: "DAX",
@@ -352,9 +360,14 @@ const categories: SkillCategory[] = [
         projects: ["Medidas e indicadores"],
       },
       {
+        name: "Machine Learning",
+        level: "Aplicado en proyectos",
+        projects: ["Aula Inteligente"],
+      },
+      {
         name: "Excel avanzado",
         level: "Uso frecuente",
-        projects: ["Análisis", "Automatización", "Proyecciones"],
+        projects: ["ITALSA S.A.","Fletes Italsa","Automatización","Proyecciones"],
       },
       {
         name: "ETL",
@@ -369,7 +382,7 @@ const categories: SkillCategory[] = [
       {
         name: "Diseño de KPI",
         level: "Aplicado en proyectos",
-        projects: ["Dashboards", "Sistemas empresariales"],
+        projects: ["ITALSA S.A.","Dashboards empresariales"],
       },
     ],
   },
@@ -419,6 +432,11 @@ const categories: SkillCategory[] = [
         projects: ["Contenedores y despliegue"],
       },
       {
+        name: "Railway",
+        level: "Aplicado en proyectos",
+        projects: ["Portafolio"],
+      },
+      {
         name: "pgAdmin",
         level: "Aplicado en proyectos",
         projects: ["PostgreSQL"],
@@ -426,7 +444,7 @@ const categories: SkillCategory[] = [
       {
         name: "Vite",
         level: "Aplicado en proyectos",
-        projects: ["React", "AgroEnlace"],
+        projects: ["AgroEnlace"],
       },
     ],
   },
@@ -458,12 +476,12 @@ const categories: SkillCategory[] = [
       {
         name: "Casos de uso",
         level: "Uso frecuente",
-        projects: ["Análisis de sistemas"],
+        projects: ["Fletes Italsa","Biblioteca Alejandría","Horus"],
       },
       {
         name: "UML",
         level: "Aplicado en proyectos",
-        projects: ["Modelado de software"],
+        projects: ["Horus","Biblioteca Alejandría"],
       },
       {
         name: "BPMN",
@@ -473,7 +491,7 @@ const categories: SkillCategory[] = [
       {
         name: "Levantamiento de requisitos",
         level: "Aplicado en proyectos",
-        projects: ["Sistemas empresariales"],
+        projects: ["Fletes Italsa","Sistemas empresariales"],
       },
       {
         name: "Modelado de procesos",
@@ -483,7 +501,7 @@ const categories: SkillCategory[] = [
       {
         name: "Documentación técnica",
         level: "Uso frecuente",
-        projects: ["README", "APIs", "Proyectos académicos"],
+        projects: ["Fletes Italsa","AgroEnlace","Auxilio.AI","Proyectos académicos"],
       },
     ],
   },

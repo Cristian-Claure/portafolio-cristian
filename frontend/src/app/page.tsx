@@ -253,6 +253,7 @@ const processSteps = {
 export default function Home() {
   const [locale, setLocale] = useState<Locale>("es");
   const [theme, setTheme] = useState<Theme>("dark");
+  const [preferencesReady, setPreferencesReady] = useState(false);
   const [health, setHealth] = useState<HealthState>({
     loading: true,
     online: false,
@@ -297,18 +298,22 @@ export default function Home() {
       if (storedTheme === "dark" || storedTheme === "light") {
         setTheme(storedTheme);
       }
+      setPreferencesReady(true);
     }, 0);
 
     return () => window.clearTimeout(restorePreferences);
   }, []);
 
   useEffect(() => {
+    if (!preferencesReady) {
+      return;
+    }
+
     document.documentElement.lang = locale;
     document.documentElement.dataset.theme = theme;
-
     localStorage.setItem("portfolio-locale", locale);
     localStorage.setItem("portfolio-theme", theme);
-  }, [locale, theme]);
+  }, [locale, theme, preferencesReady]);
 
   useEffect(() => {
     let active = true;
