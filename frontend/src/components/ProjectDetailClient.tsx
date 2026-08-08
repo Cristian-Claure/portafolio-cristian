@@ -5,13 +5,17 @@ import Link from "next/link";
 import {
   ArrowLeft,
   CheckCircle2,
+  Cpu,
+  Monitor,
   Moon,
   Sun,
 } from "lucide-react";
 import ProjectMockup from "@/components/ProjectMockup";
+import SystemXRay from "@/components/SystemXRay";
 import type { Locale, Project } from "@/data/projects";
 
 type Theme = "dark" | "light";
+type ProjectView = "overview" | "engineering";
 
 type ProjectDetailClientProps = Readonly<{ project: Project }>;
 
@@ -27,6 +31,9 @@ const labels = {
     year: "Año",
     project: "Proyecto",
     viewPortfolio: "Regresar a proyectos",
+    overview: "Vista del proyecto",
+    engineering: "Modo Ingeniería",
+    engineeringHint: "Explora arquitectura, flujo de datos y mi participación por capa.",
   },
   en: {
     back: "Back to portfolio",
@@ -39,6 +46,9 @@ const labels = {
     year: "Year",
     project: "Project",
     viewPortfolio: "Return to projects",
+    overview: "Project view",
+    engineering: "Engineering Mode",
+    engineeringHint: "Explore architecture, data flow and my contribution by layer.",
   },
 } as const;
 
@@ -46,6 +56,7 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
   const [locale, setLocale] = useState<Locale>("es");
   const [theme, setTheme] = useState<Theme>("dark");
   const [preferencesReady, setPreferencesReady] = useState(false);
+  const [projectView, setProjectView] = useState<ProjectView>("overview");
 
   useEffect(() => {
     const restore = window.setTimeout(() => {
@@ -55,7 +66,6 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
       if (storedLocale === "es" || storedLocale === "en") {
         setLocale(storedLocale);
       }
-
       if (storedTheme === "dark" || storedTheme === "light") {
         setTheme(storedTheme);
       }
@@ -66,15 +76,13 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
   }, []);
 
   useEffect(() => {
-    if (!preferencesReady) {
-      return;
-    }
+    if (!preferencesReady) return;
 
     document.documentElement.lang = locale;
     document.documentElement.dataset.theme = theme;
     localStorage.setItem("portfolio-locale", locale);
     localStorage.setItem("portfolio-theme", theme);
-  }, [locale, theme, preferencesReady]);
+  }, [locale, preferencesReady, theme]);
 
   const copy = project[locale];
   const ui = labels[locale];
@@ -87,6 +95,7 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
             <ArrowLeft className="h-4 w-4" />
             {ui.back}
           </Link>
+
           <div className="flex items-center gap-2">
             <div className="language-switch" aria-label="Language">
               <button
@@ -110,6 +119,7 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
                 ENG
               </button>
             </div>
+
             <button
               type="button"
               className="theme-toggle"
@@ -138,11 +148,58 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
             <h1>{copy.title}</h1>
             <p>{copy.summary}</p>
           </div>
-          <ProjectMockup
-            variant={project.variant}
-            locale={locale}
-            title={copy.title}
-          />
+
+          <div className="space-y-4">
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+              <div
+                className="inline-flex self-start rounded-full border border-white/10 bg-white/[0.035] p-1"
+                aria-label={locale === "es" ? "Vista del proyecto" : "Project view"}
+              >
+                <button
+                  type="button"
+                  onClick={() => setProjectView("overview")}
+                  aria-pressed={projectView === "overview"}
+                  className={`inline-flex items-center gap-2 rounded-full px-3 py-2 text-xs font-semibold transition ${
+                    projectView === "overview"
+                      ? "bg-sky-400/15 text-sky-200 shadow-[0_0_0_1px_rgba(56,189,248,0.18)]"
+                      : "text-slate-400 hover:text-slate-200"
+                  }`}
+                >
+                  <Monitor className="h-4 w-4" />
+                  {ui.overview}
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setProjectView("engineering")}
+                  aria-pressed={projectView === "engineering"}
+                  className={`inline-flex items-center gap-2 rounded-full px-3 py-2 text-xs font-semibold transition ${
+                    projectView === "engineering"
+                      ? "bg-indigo-400/15 text-indigo-200 shadow-[0_0_0_1px_rgba(129,140,248,0.2)]"
+                      : "text-slate-400 hover:text-slate-200"
+                  }`}
+                >
+                  <Cpu className="h-4 w-4" />
+                  {ui.engineering}
+                </button>
+              </div>
+
+              {projectView === "engineering" && (
+                <p className="max-w-xs text-xs leading-5 text-slate-500">
+                  {ui.engineeringHint}
+                </p>
+              )}
+            </div>
+
+            {projectView === "overview" ? (
+              <ProjectMockup
+                variant={project.variant}
+                locale={locale}
+                title={copy.title}
+              />
+            ) : (
+              <SystemXRay project={project} locale={locale} />
+            )}
+          </div>
         </div>
       </section>
 
