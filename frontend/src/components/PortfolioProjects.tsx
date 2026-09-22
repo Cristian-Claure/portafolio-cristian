@@ -51,7 +51,7 @@ export default function PortfolioProjects({ locale }: PortfolioProjectsProps) {
               key={project.slug}
               className={`glass-panel project-showcase-card ${
                 project.featured ? "project-showcase-featured" : ""
-              } ${index === 0 ? "project-showcase-primary" : ""}`}
+              } ${index === 0 || project.wide ? "project-showcase-primary" : ""}`}
             >
               <ProjectMockup
                 variant={project.variant}

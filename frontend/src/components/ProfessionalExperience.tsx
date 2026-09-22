@@ -19,6 +19,8 @@ const copy = {
           "Desarrollo soluciones internas y herramientas de información para apoyar procesos operativos, comerciales y de planificación.",
         achievements: [
           "Desarrollo full stack del sistema profesional Fletes Italsa.",
+          "Implementación de aprobación y ejecución de pagos de viajes.",
+          "Desarrollo del módulo de planificación de abastecimientos.",
           "Automatización con Excel avanzado y macros VBA.",
           "Desarrollo de scripts, transformaciones y reportes en Qlik Sense.",
           "Análisis y dashboards en Power BI para apoyar decisiones.",
@@ -57,6 +59,8 @@ const copy = {
           "I develop internal solutions and information tools that support operational, commercial and planning processes.",
         achievements: [
           "Full-stack development of the professional Fletes Italsa system.",
+          "Implementation of trip payment approval and execution.",
+          "Development of the supply planning module.",
           "Automation with advanced Excel and VBA macros.",
           "Scripts, transformations and report development in Qlik Sense.",
           "Power BI analysis and dashboards for decision support.",
@@ -133,7 +137,10 @@ export default function ProfessionalExperience({ locale }: ExperienceProps) {
                     ))}
                   </div>
                   {index === 0 && (
-                    <span className="experience-current">{content.current}</span>
+                    <span className="experience-current" title={content.current}>
+                      <span className="status-dot status-online" aria-hidden="true" />
+                      <span className="sr-only">{content.current}</span>
+                    </span>
                   )}
                 </div>
               </article>

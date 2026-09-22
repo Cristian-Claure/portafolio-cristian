@@ -37,8 +37,8 @@ type XRayDefinition = {
 
 const architectures: Record<string, XRayDefinition> = {
   "fletes-italsa": {
-    subtitleEs: "Del registro operativo a la lógica de negocio, datos y reportes.",
-    subtitleEn: "From operational input to business rules, data and reporting.",
+    subtitleEs: "Logística, pagos de viajes y planificación de abastecimientos en una plataforma.",
+    subtitleEn: "Logistics, trip payments and supply planning in one platform.",
     nodes: [
       {
         id: "ui",
@@ -47,9 +47,9 @@ const architectures: Record<string, XRayDefinition> = {
         titleEn: "Operational experience",
         technology: "React + TypeScript + Material UI",
         descriptionEs:
-          "Formularios guiados, catálogos y validaciones para registrar viajes, pedidos, unidades y movimientos sin depender de hojas de cálculo.",
+          "Formularios y vistas para viajes, pedidos y unidades, con flujos de aprobación y ejecución de pagos y planificación de abastecimientos.",
         descriptionEn:
-          "Guided forms, catalogs and validations for registering trips, orders, vehicles and movements without relying on spreadsheets.",
+          "Forms and views for trips, orders and vehicles, with payment approval and execution workflows and supply planning.",
         contributionEs:
           "Diseño y desarrollo de la interfaz, validaciones de escenarios y adaptación del flujo a usuarios reales del proceso.",
         contributionEn:
@@ -62,9 +62,9 @@ const architectures: Record<string, XRayDefinition> = {
         titleEn: "Business rules",
         technology: "PHP + Laravel + API REST",
         descriptionEs:
-          "Centraliza reglas operativas, coherencia entre movimientos, cálculo de ventas y coordinación con servicios internos.",
+          "Centraliza reglas operativas, aprobación y ejecución de pagos de viajes, planificación de abastecimientos y coordinación con servicios internos.",
         descriptionEn:
-          "Centralizes operational rules, movement consistency, sales calculations and coordination with internal services.",
+          "Centralizes operational rules, trip payment approval and execution, supply planning and coordination with internal services.",
         contributionEs:
           "Definición e implementación de reglas, endpoints, validaciones y resolución de casos funcionales junto a usuarios.",
         contributionEn:
@@ -92,13 +92,79 @@ const architectures: Record<string, XRayDefinition> = {
         titleEn: "Integrations and reports",
         technology: "Servicios internos + Reportes",
         descriptionEs:
-          "Conecta información comercial y operacional para producir detalle, cabecera y consolidados orientados a planificación.",
+          "Conecta información comercial y operacional para producir reportes de detalle, cabecera y consolidados, como apoyo a la logística y la planificación de abastecimientos.",
         descriptionEn:
-          "Connects commercial and operational information to produce detailed, header and consolidated reports for planning.",
+          "Connects commercial and operational information to produce detail, header and consolidated reports supporting logistics and supply planning.",
         contributionEs:
           "Integración funcional, definición de salidas y construcción de reportes sin exponer infraestructura empresarial sensible.",
         contributionEn:
           "Functional integration, output definition and report construction without exposing sensitive enterprise infrastructure.",
+      },
+    ],
+  },
+  velora: {
+    subtitleEs: "Comercio de moda web y móvil, módulos de IA y despliegue en Azure.",
+    subtitleEn: "Web and mobile fashion commerce, AI modules and deployment on Azure.",
+    nodes: [
+      {
+        id: "channels",
+        kind: "frontend",
+        titleEs: "Canales web y móvil",
+        titleEn: "Web and mobile channels",
+        technology: "React + React Native",
+        descriptionEs:
+          "Interfaces web y móvil para la experiencia de compra de moda femenina dentro de una plataforma omnicanal.",
+        descriptionEn:
+          "Web and mobile interfaces for women's fashion shopping within an omnichannel platform.",
+        contributionEs:
+          "Desarrollo de las interfaces y su integración con los servicios del backend.",
+        contributionEn:
+          "Interface development and integration with backend services.",
+      },
+      {
+        id: "api",
+        kind: "backend",
+        titleEs: "Servicios de comercio",
+        titleEn: "Commerce services",
+        technology: "NestJS",
+        descriptionEs:
+          "Backend modular que concentra la lógica de la plataforma y conecta los canales web y móvil.",
+        descriptionEn:
+          "A modular backend that centralizes platform logic and connects web and mobile channels.",
+        contributionEs:
+          "Desarrollo e integración de los servicios que utiliza la plataforma de comercio.",
+        contributionEn:
+          "Development and integration of services used by the commerce platform.",
+      },
+      {
+        id: "ai",
+        kind: "integration",
+        titleEs: "Experiencia con IA",
+        titleEn: "AI experience",
+        technology: "IA / AI",
+        descriptionEs:
+          "Probador virtual, chatbot de recomendación y reportes generados mediante inteligencia artificial.",
+        descriptionEn:
+          "Virtual try-on, a recommendation chatbot and reports generated with artificial intelligence.",
+        contributionEs:
+          "Integración de los módulos de IA en la experiencia de compra y la consulta de información.",
+        contributionEn:
+          "Integration of AI modules into the shopping experience and information access.",
+      },
+      {
+        id: "cloud",
+        kind: "integration",
+        titleEs: "Contenedores y nube",
+        titleEn: "Containers and cloud",
+        technology: "Docker + Azure",
+        descriptionEs:
+          "Aplicación preparada con contenedores Docker y desplegada en Azure.",
+        descriptionEn:
+          "Application prepared with Docker containers and deployed on Azure.",
+        contributionEs:
+          "Preparación de los contenedores y configuración del despliegue de la plataforma.",
+        contributionEn:
+          "Container preparation and platform deployment configuration.",
       },
     ],
   },

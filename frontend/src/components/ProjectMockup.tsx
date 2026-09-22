@@ -1,3 +1,4 @@
+import { Shirt, ShoppingBag, Sparkles } from "lucide-react";
 import type { Locale, ProjectVariant } from "@/data/projects";
 
 type ProjectMockupProps = Readonly<{
@@ -13,6 +14,7 @@ type Copy = {
   secondary: string;
   tertiary: string;
   architecture: readonly string[];
+  modules?: readonly string[];
 };
 
 const content: Record<ProjectVariant, Record<Locale, Copy>> = {
@@ -23,6 +25,7 @@ const content: Record<ProjectVariant, Record<Locale, Copy>> = {
       secondary: "Capacidad",
       tertiary: "Pedidos",
       architecture: ["React", "Laravel API", "MySQL"],
+      modules: ["Viajes", "Aprobación y pagos", "Abastecimiento"],
     },
     en: {
       eyebrow: "Logistics operation",
@@ -30,6 +33,25 @@ const content: Record<ProjectVariant, Record<Locale, Copy>> = {
       secondary: "Capacity",
       tertiary: "Orders",
       architecture: ["React", "Laravel API", "MySQL"],
+      modules: ["Trips", "Approval and payments", "Supply planning"],
+    },
+  },
+  fashion: {
+    es: {
+      eyebrow: "Moda femenina · Web y app",
+      primary: "Probador virtual",
+      secondary: "Chatbot de recomendación",
+      tertiary: "Reportes con IA",
+      architecture: ["React + React Native", "NestJS", "Docker + Azure"],
+      modules: ["Vestidos", "Blusas", "Conjuntos"],
+    },
+    en: {
+      eyebrow: "Women's fashion · Web and app",
+      primary: "Virtual try-on",
+      secondary: "Recommendation chatbot",
+      tertiary: "AI reports",
+      architecture: ["React + React Native", "NestJS", "Docker + Azure"],
+      modules: ["Dresses", "Blouses", "Outfits"],
     },
   },
   emergency: {
@@ -146,6 +168,33 @@ function LogisticsVisual({ copy }: Readonly<{ copy: Copy }>) {
         <span><i />TR-2411 <b>SCZ → CBB</b></span>
         <span><i />TR-2415 <b>SCZ → TJA</b></span>
       </div>
+      <div className="logistics-modules">
+        {copy.modules?.map((module) => <span key={module}>{module}</span>)}
+      </div>
+    </div>
+  );
+}
+
+function FashionVisual({ copy }: Readonly<{ copy: Copy }>) {
+  return (
+    <div className="project-mock-v9-scene fashion-scene">
+      <div className="fashion-storefront">
+        <span>VÉLORA</span>
+        <ShoppingBag aria-hidden="true" />
+      </div>
+      <div className="fashion-collection">
+        {copy.modules?.map((category) => (
+          <div className="fashion-product" key={category}>
+            <div className="fashion-product-art"><Shirt aria-hidden="true" /></div>
+            <strong>{category}</strong>
+          </div>
+        ))}
+      </div>
+      <div className="fashion-ai-modules">
+        {[copy.primary, copy.secondary, copy.tertiary].map((module) => (
+          <span key={module}><Sparkles aria-hidden="true" />{module}</span>
+        ))}
+      </div>
     </div>
   );
 }
@@ -235,6 +284,7 @@ function LibraryVisual({ copy }: Readonly<{ copy: Copy }>) {
 
 function VariantVisual({ variant, copy }: Readonly<{ variant: ProjectVariant; copy: Copy }>) {
   if (variant === "logistics") return <LogisticsVisual copy={copy} />;
+  if (variant === "fashion") return <FashionVisual copy={copy} />;
   if (variant === "emergency") return <EmergencyVisual copy={copy} />;
   if (variant === "agriculture") return <AgricultureVisual copy={copy} />;
   if (variant === "healthcare") return <HealthcareVisual copy={copy} />;

@@ -2,6 +2,7 @@ export type Locale = "es" | "en";
 
 export type ProjectVariant =
   | "logistics"
+  | "fashion"
   | "emergency"
   | "agriculture"
   | "healthcare"
@@ -23,6 +24,7 @@ export type Project = {
   slug: string;
   year: string;
   featured: boolean;
+  wide?: boolean;
   variant: ProjectVariant;
   stack: readonly string[];
   es: ProjectCopy;
@@ -48,18 +50,20 @@ export const projectCatalog: readonly Project[] = [
       title: "Fletes Italsa",
       category: "Proyecto profesional",
       summary:
-        "Sistema web empresarial para centralizar el registro de despachos, viajes, pedidos, unidades, movimientos, ventas y reportes.",
+        "Plataforma empresarial para gestionar despachos y viajes, aprobar y ejecutar sus pagos y planificar abastecimientos, con información comercial y reportes centralizados.",
       challenge:
         "El proceso dependía de archivos de Excel y macros VBA, con información distribuida, reglas operativas difíciles de mantener y reportes que requerían trabajo manual.",
       solution:
-        "Se diseñó una plataforma web modular con formularios guiados, catálogos, validaciones, integración con servicios internos y reportes consolidados para apoyar la operación y la planificación.",
+        "Se desarrolló una plataforma web modular con formularios guiados, catálogos, validaciones e integración con servicios internos. Su alcance incluye la aprobación y ejecución de pagos de viajes y un módulo completo de planificación de abastecimientos, junto con reportes consolidados.",
       role:
         "Participé en el levantamiento de requerimientos, definición de reglas de negocio, desarrollo full stack, validación de escenarios, diseño de reportes y coordinación con usuarios del proceso.",
       result:
-        "Una base tecnológica centralizada y mantenible que permite evolucionar el proceso operativo sin depender de una única hoja de cálculo.",
+        "Una plataforma centralizada que conecta la operación logística, los pagos de viajes y la planificación de abastecimientos, con una base mantenible para seguir evolucionando.",
       highlights: [
         "Registro de viajes y pedidos con múltiples escenarios operativos.",
         "Gestión de unidades, tarifas y movimientos.",
+        "Aprobación y ejecución de pagos de viajes.",
+        "Módulo completo de planificación de abastecimientos.",
         "Integración de información comercial y reglas de negocio.",
         "Reportes de detalle, cabecera y consolidado.",
       ],
@@ -68,20 +72,74 @@ export const projectCatalog: readonly Project[] = [
       title: "Fletes Italsa",
       category: "Professional project",
       summary:
-        "Enterprise web system for centralizing dispatches, trips, orders, vehicles, movements, sales and operational reports.",
+        "Enterprise platform for managing dispatches and trips, approving and executing trip payments, and planning supplies, with centralized commercial information and reports.",
       challenge:
         "The process relied on Excel files and VBA macros, with distributed information, difficult-to-maintain business rules and reports that required manual work.",
       solution:
-        "A modular web platform was designed with guided forms, catalogs, validations, internal-service integration and consolidated reports for operations and planning.",
+        "A modular web platform was developed with guided forms, catalogs, validations and internal-service integration. Its scope includes trip payment approval and execution, a complete supply planning module and consolidated reports.",
       role:
         "I participated in requirements gathering, business-rule definition, full-stack development, scenario validation, report design and coordination with process users.",
       result:
-        "A centralized and maintainable technology foundation that allows the operation to evolve without depending on a single spreadsheet.",
+        "A centralized platform connecting logistics operations, trip payments and supply planning, with a maintainable foundation for further development.",
       highlights: [
         "Trip and order registration across multiple operational scenarios.",
         "Vehicle, rate and movement management.",
+        "Trip payment approval and execution.",
+        "Complete supply planning module.",
         "Commercial-information integration and business rules.",
         "Detail, header and consolidated reports.",
+      ],
+    },
+  },
+  {
+    slug: "velora",
+    year: "2026",
+    featured: true,
+    wide: true,
+    variant: "fashion",
+    stack: ["NestJS", "React", "React Native", "Docker", "Azure", "IA"],
+    es: {
+      title: "VÉLORA",
+      category: "E-commerce omnicanal",
+      summary:
+        "E-commerce omnicanal de moda femenina con experiencia web y móvil, probador virtual, chatbot de recomendación y reportes generados por IA, desplegado en Azure.",
+      challenge:
+        "Conectar los canales de una tienda de moda femenina en una plataforma que facilite la compra y permita incorporar asistencia inteligente a la experiencia del cliente y a la consulta de información.",
+      solution:
+        "Una plataforma con backend NestJS, web en React y aplicación móvil en React Native. Integra un probador virtual, un chatbot de recomendación y generación de reportes mediante IA, con contenedores Docker y despliegue en Azure.",
+      role:
+        "Desarrollo de la plataforma web y móvil, integración con el backend, incorporación de los módulos de IA y preparación del despliegue con Docker en Azure.",
+      result:
+        "Una plataforma de comercio de moda desplegada en Azure que reúne canales web y móvil y funciones de inteligencia artificial para clientes y gestión.",
+      highlights: [
+        "E-commerce omnicanal de moda femenina.",
+        "Experiencia web en React y móvil en React Native.",
+        "Backend modular desarrollado con NestJS.",
+        "Probador virtual y chatbot de recomendación con IA.",
+        "Reportes generados mediante inteligencia artificial.",
+        "Contenedores Docker y despliegue en Azure.",
+      ],
+    },
+    en: {
+      title: "VÉLORA",
+      category: "Omnichannel e-commerce",
+      summary:
+        "An omnichannel women's fashion platform with web and mobile experiences, virtual try-on, a recommendation chatbot and AI-generated reports, deployed on Azure.",
+      challenge:
+        "Connect a women's fashion store's channels in a platform that makes shopping easier and brings intelligent assistance to the customer experience and information access.",
+      solution:
+        "A platform with a NestJS backend, React web application and React Native mobile application. It integrates virtual try-on, a recommendation chatbot and AI-generated reports, using Docker containers and deployment on Azure.",
+      role:
+        "Web and mobile platform development, backend integration, AI module integration and deployment preparation with Docker on Azure.",
+      result:
+        "A fashion commerce platform deployed on Azure, bringing together web and mobile channels and AI features for customers and management.",
+      highlights: [
+        "Omnichannel women's fashion e-commerce.",
+        "React web and React Native mobile experiences.",
+        "Modular backend built with NestJS.",
+        "AI virtual try-on and recommendation chatbot.",
+        "Reports generated with artificial intelligence.",
+        "Docker containers and deployment on Azure.",
       ],
     },
   },

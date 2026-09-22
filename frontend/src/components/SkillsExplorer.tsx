@@ -8,6 +8,7 @@ import {
   Code2,
   Database,
   ServerCog,
+  Smartphone,
   Sparkles,
   Workflow,
   Wrench,
@@ -119,7 +120,7 @@ const categories: SkillCategory[] = [
       {
         name: "React",
         level: "Uso frecuente",
-        projects: ["Portafolio","Fletes Italsa","AgroEnlace","Horus"],
+        projects: ["Portafolio","Fletes Italsa","AgroEnlace","Horus","VÉLORA"],
       },
       {
         name: "Next.js",
@@ -214,6 +215,11 @@ const categories: SkillCategory[] = [
         projects: ["Biblioteca Alejandría"],
       },
       {
+        name: "NestJS",
+        level: "Aplicado en proyectos",
+        projects: ["VÉLORA"],
+      },
+      {
         name: "Spring Boot",
         level: "Formación académica",
         projects: ["Horus"],
@@ -222,6 +228,28 @@ const categories: SkillCategory[] = [
         name: "API REST",
         level: "Uso frecuente",
         projects: ["Portafolio","Fletes Italsa","Auxilio.AI","AgroEnlace"],
+      },
+    ],
+  },
+  {
+    id: "mobile",
+    titleEs: "Desarrollo móvil",
+    titleEn: "Mobile development",
+    shortEs: "Móvil",
+    shortEn: "Mobile",
+    descriptionEs:
+      "Aplicaciones móviles conectadas con servicios backend para extender la experiencia del usuario a nuevos canales.",
+    descriptionEn:
+      "Mobile applications connected to backend services, extending the user experience to new channels.",
+    focusEs: "Aplicaciones móviles e integración con APIs",
+    focusEn: "Mobile applications and API integration",
+    icon: Smartphone,
+    accent: "from-violet-400/20 via-fuchsia-400/10 to-transparent",
+    skills: [
+      {
+        name: "React Native",
+        level: "Aplicado en proyectos",
+        projects: ["VÉLORA"],
       },
     ],
   },
@@ -264,6 +292,11 @@ const categories: SkillCategory[] = [
         name: "Java",
         level: "Formación académica",
         projects: ["Horus"],
+      },
+      {
+        name: "Kotlin",
+        level: "En consolidación",
+        projects: [],
       },
       {
         name: "SQL",
@@ -388,14 +421,14 @@ const categories: SkillCategory[] = [
   },
   {
     id: "tools",
-    titleEs: "Herramientas de desarrollo",
-    titleEn: "Development tools",
-    shortEs: "Herramientas",
-    shortEn: "Tools",
+    titleEs: "Herramientas de desarrollo y nube",
+    titleEn: "Development tools and cloud",
+    shortEs: "Herramientas y nube",
+    shortEn: "Tools and cloud",
     descriptionEs:
-      "Herramientas para desarrollar, probar, documentar, versionar y ejecutar aplicaciones.",
+      "Herramientas para desarrollar, depurar, probar y versionar aplicaciones, con contenedores y despliegue en la nube.",
     descriptionEn:
-      "Tools for developing, testing, documenting, versioning and running applications.",
+      "Tools for developing, debugging, testing and versioning applications, with containers and cloud deployment.",
     focusEs: "Productividad, pruebas y control de versiones",
     focusEn: "Productivity, testing and version control",
     icon: Wrench,
@@ -428,8 +461,18 @@ const categories: SkillCategory[] = [
       },
       {
         name: "Docker",
+        level: "Aplicado en proyectos",
+        projects: ["VÉLORA", "Contenedores y despliegue"],
+      },
+      {
+        name: "Azure",
+        level: "Aplicado en proyectos",
+        projects: ["VÉLORA"],
+      },
+      {
+        name: "DevTools",
         level: "En consolidación",
-        projects: ["Contenedores y despliegue"],
+        projects: [],
       },
       {
         name: "Railway",
@@ -836,25 +879,27 @@ export default function SkillsExplorer({
                       </p>
                     </div>
 
-                    <div className="mt-5 border-t border-white/5 pt-4">
-                      <p className="text-[0.68rem] font-medium uppercase tracking-[0.18em] text-slate-600">
-                        {copy.appliedIn}
-                      </p>
+                    {skill.projects.length > 0 && (
+                      <div className="mt-5 border-t border-white/5 pt-4">
+                        <p className="text-[0.68rem] font-medium uppercase tracking-[0.18em] text-slate-600">
+                          {copy.appliedIn}
+                        </p>
 
-                      <div className="mt-3 flex flex-wrap gap-2">
-                        {skill.projects.map((project) => (
-                          <span
-                            key={project}
-                            className="rounded-full border border-white/8 bg-white/[0.035] px-2.5 py-1 text-xs text-slate-400"
-                          >
-                            {translateProjectName(
-                              project,
-                              locale
-                            )}
-                          </span>
-                        ))}
+                        <div className="mt-3 flex flex-wrap gap-2">
+                          {skill.projects.map((project) => (
+                            <span
+                              key={project}
+                              className="rounded-full border border-white/8 bg-white/[0.035] px-2.5 py-1 text-xs text-slate-400"
+                            >
+                              {translateProjectName(
+                                project,
+                                locale
+                              )}
+                            </span>
+                          ))}
+                        </div>
                       </div>
-                    </div>
+                    )}
                   </article>
                 ))}
               </div>

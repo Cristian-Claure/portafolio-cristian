@@ -569,6 +569,7 @@ export default function Home() {
           <div className="mt-10 flex flex-wrap items-center gap-5 text-sm text-slate-400">
             <span className="inline-flex items-center gap-3">
               <span
+                aria-hidden="true"
                 className={`status-dot ${
                   health.online
                     ? "status-online"

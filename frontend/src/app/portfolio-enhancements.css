@@ -280,13 +280,9 @@ section[id] {
   position: absolute;
   top: 1rem;
   right: 1rem;
+  display: inline-flex;
   width: 0.55rem;
   height: 0.55rem;
-  overflow: hidden;
-  border-radius: 9999px;
-  background: #4ade80;
-  color: transparent;
-  box-shadow: 0 0 0 6px rgba(74, 222, 128, 0.08);
 }
 
 .project-showcase-grid {
@@ -1091,6 +1087,11 @@ html[data-theme="light"] .project-return-button:hover {
 .project-mockup-healthcare.project-mock-v9 { --v9-accent: #a78bfa; --v9-accent-soft: rgba(167,139,250,.14); }
 .project-mockup-analytics.project-mock-v9 { --v9-accent: #f59e0b; --v9-accent-soft: rgba(245,158,11,.15); }
 .project-mockup-library.project-mock-v9 { --v9-accent: #60a5fa; --v9-accent-soft: rgba(96,165,250,.14); }
+.project-mockup-fashion.project-mock-v9 {
+  --v9-accent: #f0abfc;
+  --v9-accent-soft: rgba(240, 171, 252, 0.12);
+  background: linear-gradient(135deg, rgba(192, 132, 252, 0.09), rgba(251, 113, 133, 0.06));
+}
 
 .project-mock-v9-browser {
   overflow: hidden;
@@ -1165,6 +1166,93 @@ html[data-theme="light"] .project-return-button:hover {
 .logistics-table span { display: grid; grid-template-columns: .35rem 1fr auto; align-items: center; gap: .35rem; border-radius: .35rem; background: rgba(255,255,255,.018); padding: .28rem .4rem; color: #94a3b8; font-size: .43rem; }
 .logistics-table i { width: .3rem; height: .3rem; border-radius: 50%; background: #34d399; }
 .logistics-table b { color: #cbd5e1; font-weight: 500; }
+
+.logistics-modules {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-top: 0.65rem;
+}
+
+.logistics-modules span {
+  border-radius: 999px;
+  background: var(--v9-accent-soft);
+  padding: 0.25rem 0.45rem;
+  color: var(--v9-accent);
+  font-size: 0.48rem;
+}
+
+/* Fashion storefront and AI modules. */
+.fashion-storefront {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.7rem;
+  color: var(--v9-accent);
+}
+
+.fashion-storefront span {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+}
+
+.fashion-storefront svg { width: 0.9rem; height: 0.9rem; }
+
+.fashion-collection {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.5rem;
+}
+
+.fashion-product {
+  overflow: hidden;
+  border: 1px solid rgba(240, 171, 252, 0.14);
+  border-radius: 0.55rem;
+  background: var(--v9-accent-soft);
+}
+
+.fashion-product-art {
+  display: grid;
+  min-height: 4.4rem;
+  place-items: center;
+  background: linear-gradient(145deg, rgba(240, 171, 252, 0.2), transparent);
+  color: #f5d0fe;
+}
+
+.fashion-product:nth-child(2) .fashion-product-art { color: #fda4af; }
+.fashion-product:nth-child(3) .fashion-product-art { color: #c4b5fd; }
+.fashion-product-art svg { width: 2.6rem; height: 2.6rem; stroke-width: 1; }
+.fashion-product strong { display: block; padding: 0.35rem; font-size: 0.52rem; text-align: center; }
+
+.fashion-ai-modules {
+  display: grid;
+  gap: 0.3rem;
+  margin-top: 0.65rem;
+}
+
+.fashion-ai-modules span {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  border-radius: 0.35rem;
+  background: var(--v9-accent-soft);
+  padding: 0.32rem 0.45rem;
+  color: var(--v9-accent);
+  font-size: 0.52rem;
+}
+
+.fashion-ai-modules svg { width: 0.7rem; height: 0.7rem; flex-shrink: 0; }
+
+html[data-theme="light"] .project-mockup-fashion.project-mock-v9 {
+  --v9-accent: #a21caf;
+  --v9-accent-soft: rgba(162, 28, 175, 0.07);
+}
+
+html[data-theme="light"] .fashion-product-art { color: #a21caf; }
+html[data-theme="light"] .fashion-product:nth-child(2) .fashion-product-art { color: #be185d; }
+html[data-theme="light"] .fashion-product:nth-child(3) .fashion-product-art { color: #7c3aed; }
+html[data-theme="light"] .logistics-modules span { color: #0369a1; }
 
 /* Emergency */
 .emergency-scene { display: grid; grid-template-columns: 1.05fr .95fr; gap: .55rem; }
